@@ -1,0 +1,322 @@
+/*
+Theme Name: Tech Plugin Page
+Author: Tech
+Description: Private Theme for all of Tech's Plugin Pages
+Version: 1.0.0
+Tags: private
+*/
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+a {
+  text-decoration: none;
+}
+
+b {
+  color: var(--theme-color);
+  font-weight: bold;
+}
+
+code {
+  background: white;
+  color: var(--theme-color);
+  padding: 3px 2px;
+  margin: 0 2px;
+}
+
+em {
+  color: #7f8c8d;
+}
+
+ul {
+  margin: 0; /* To remove default bottom margin */
+  padding: 0; /* To remove default left padding */
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+  color: var(--theme-color);
+  margin-bottom: 0;
+}
+
+img {
+  width: 100%;
+}
+
+/* General Page Structure & Header */
+
+.themeColor {
+  color: var(--theme-color);
+}
+
+.themeBackground {
+  background: var(--theme-color);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  min-height: 100%;
+  width: 700px;
+
+  margin-top: 20px;
+
+  font-family: 'Muli';
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+}
+
+.topbar > .logo {
+  height: 64px;
+  width: 64px;
+}
+
+.purchaseWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.purchaseWrapper > .purchaseCount {
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+.purchaseWrapper > .purchase {
+  color: #ffffff;
+  background: var(--theme-color);
+
+  padding: 8px;
+}
+
+.header {
+  width: 100%;
+}
+
+.footer {
+  text-align: center;
+  font-size: 11px;
+}
+
+/* Navigation: */
+
+.navigation {
+  margin-top: 15px;
+  margin-bottom: 9px;
+  text-align: center;
+  list-style: none;
+}
+
+.page_item {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.page_item > a {
+  color: #707070;
+  background: white;
+
+  padding: 11px;
+  border-radius: 23px;
+}
+
+.current_page_item > a {
+  color: #ffffff !important;
+  background: var(--theme-color) !important;
+}
+
+/* General Page CSS */
+
+.entry-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.centeredText {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.images {
+  display: flex;
+  align-items: center;
+}
+
+.sideline {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.sideline:before,
+.sideline:after {
+    content: '';
+    border-top: 5px solid;
+    border-color: #707070;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+}
+
+.sideline:after {
+    margin: 0 0 0 20px;
+}
+
+.condensed {
+  width: 90%;
+}
+
+.doubleList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.doubleList > .entry {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 50%;
+}
+
+.doubleList > .entry > .point {
+  min-height: 25px;
+  min-width: 25px;
+  border-radius: 50%;
+  margin-right: 15px;
+  background: var(--theme-color);
+}
+
+.doubleList > .entry > .entryContent > .title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.doubleList > .entry > .entryContent > .content {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+.tagline {
+  text-align: center;
+}
+
+.tagline > li {
+  list-style: none;
+  display: inline;
+}
+
+.tagline > li:after {
+  content: " \25CF";
+  color: var(--theme-color);
+}
+
+.tagline > li:last-child:after {
+  content: none;
+}
+
+.postFooter {
+  text-align: right;
+  color: gray;
+  font-size: 11;
+
+  margin-top: 10px;
+}
+
+.entry-content > * > ul {
+  margin-left: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-50 {
+  width: 50%;
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
+/* Update Page Specific */
+
+.update {
+  margin-bottom: 20px;
+}
+
+.wikiWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.wikiPage {
+  min-height: 50%;
+  width: 100%;
+}
+
+.wikiContent {
+  margin-top: 5px;
+
+  border-top-style: solid;
+  border-color: #707070;
+  border-width: 5px;
+
+}
+
+.wikiSidebar {
+  text-align: center;
+  min-height: 50%;
+  width: 325px;
+
+  margin-left: 20px;
+}
+
+.wikiNavigation {
+
+}
+
+.wikiNavItem {
+  text-align: left;
+  margin-top: 10px;
+  list-style-type: none;
+}
+
+.wikiNavItem:hover {
+  text-decoration: underline;
+}
+
+.wikiNavItem > a {
+  color: black;
+}
+
+.wikiActiveNavItem {
+  border-left-style: solid;
+  border-width: 5px;
+  border-color: var(--theme-color);
+  padding-left: 5px;
+}
