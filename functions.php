@@ -1,10 +1,15 @@
 <?php
 
+function onPageInitialization(){
+  createUpdatePostType();
+  createWikiPostType();
+  createDefaultPages();
+}
 
 function getCSSOverwrites() {
   ob_start();
 
-  $text_color = get_theme_mod( 'theme_color', '' );
+  $text_color = get_theme_mod('theme_color', '#000000');
   if ( ! empty( $text_color ) ) {
     ?>
 
@@ -19,7 +24,65 @@ function getCSSOverwrites() {
   return $css;
 }
 
-function registerUpdateType() {
+function getAdminPanelCSS(){
+  $cssFile = get_bloginfo('template_directory')."/style_acp.css";
+  echo '<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">';
+  echo '<link rel="stylesheet" type="text/css" href="'.$cssFile.'">';
+}
+
+function createDefaultPages(){
+  $overview = get_page_by_title('Overview');
+
+  if($overview == NULL){
+    $overview = createPage('Overview', 1);
+  }
+
+  if(get_page_by_title('Updates') == NULL){
+    createPage('Updates', 2);
+  }
+
+  if(get_page_by_title('Wiki') == NULL){
+    createPage("Wiki", 3);
+  }
+
+  if(get_page_by_title('Discord') == NULL){
+    createPage("Discord", 4);
+  }
+
+  if(get_page_by_title('Sample Page') != NULL){
+    removePage('sample-page');
+  }
+
+  if(get_page_by_title("Privacy Policy") != NULL){
+    removePage('privacy-policy');
+  }
+
+  // Overwrite Frontpage Setting
+  update_option( 'page_on_front', $overview->ID );
+  update_option( 'show_on_front', 'page' );
+}
+
+function createPage($pageName, $order){
+  $createPage = array(
+    'post_title'    => $pageName,
+    'post_content'  => '',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+    'post_name'     => $pageName,
+    'menu_order'    => $order
+  );
+
+  wp_insert_post($createPage);
+}
+
+function removePage($pageName){
+  $page = get_page_by_path($pageName);
+  $pageId = $page->ID;
+  wp_delete_post($pageId, true);
+}
+
+function createUpdatePostType() {
   $labels = array(
     'name'               => __( 'Updates' ),
     'singular_name'      => __( 'Update' ),
@@ -63,7 +126,7 @@ function registerUpdateType() {
   );
 }
 
-function registerWikiPageType(){
+function createWikiPostType(){
   $labels = array(
     'name'               => __( 'Wiki Pages' ),
     'singular_name'      => __( 'Wiki Page' ),
@@ -105,7 +168,7 @@ function registerCustomizer( $wp_customize ) {
   require("customizer.php");
 }
 
-add_action( 'init', 'registerUpdateType', 0);
-add_action( 'init', 'registerWikiPageType', 0);
-add_action( 'wp_enqueue_scripts', 'registerOverwrites' );
-add_action( 'customize_register', 'registerCustomizer' );
+add_action('init', 'onPageInitialization', 0);
+add_action('wp_enqueue_scripts', 'registerOverwrites' );
+add_action('customize_register', 'registerCustomizer' );
+add_action('admin_head', 'getAdminPanelCSS');

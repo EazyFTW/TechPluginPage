@@ -10,25 +10,13 @@ $loop = new WP_Query( array(
 
 <div class="entry-content">
 
-<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-  <div class="update condensed">
-    <h3 class="sideline"><?php the_title(); ?></h3>
-    <ul class="tagline">
-      <?php
-      $terms = get_the_terms(get_the_ID(), "tags");
-      foreach($terms as $term){
-        echo "<li>".$term->name."</li>\n";
-      }
-       ?>
-    </ul>
+<?php
+while ( $loop->have_posts() ) : $loop->the_post();
 
-    <?php the_content(); ?>
+include("single-update.php");
 
-    <div class="postFooter">
-      <?php echo "written by ".get_author_name()." on ".get_the_time();?>
-    </div>
-  </div>
-<?php endwhile; wp_reset_query(); ?>
+endwhile; wp_reset_query();
+?>
 
 </div>
 

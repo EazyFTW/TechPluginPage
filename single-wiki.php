@@ -39,5 +39,4 @@ $loop = new WP_Query( array(
   </div>
 </div>
 
-
 <?php get_footer(); ?>

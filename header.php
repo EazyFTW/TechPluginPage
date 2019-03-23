@@ -32,7 +32,7 @@ function localFile($path){
         </div>
       </div>
 
-      <img class="header" src="<?php echo esc_url( get_theme_mod( 'header' ) ); ?>">
+      <img class="header" src="<?php echo esc_url(get_theme_mod( 'header', 'https://via.placeholder.com/700x257.png?text=Insert+Header+Image+Here')); ?>">
 
       <ul class="navigation">
         <?php wp_list_pages( '&title_li=' ); ?>

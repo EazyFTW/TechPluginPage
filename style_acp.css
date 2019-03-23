@@ -1,0 +1,75 @@
+* {
+  font-family: 'Muli';
+}
+
+/* Navigation Bar */
+
+#dashboard-widgets-wrap {
+  display: none;
+}
+
+#menu-tools {
+  display: none;
+}
+
+#adminmenuback {
+  display: none;
+}
+
+#adminmenuwrap {
+  background: white;
+  width: 100%;
+}
+
+#adminmenu {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: white;
+}
+
+.wp-not-current-submenu > * > .wp-menu-name {
+  color: black;
+}
+
+#adminmenu div.wp-menu-name {
+  padding: 5px;
+}
+#adminmenu div.wp-menu-image {
+  display: none;
+}
+
+#adminmenu > li :after {
+  display: none;
+}
+
+#adminmenu > li {
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.wp-submenu {
+  display: none;
+}
+
+#wpbody-content {
+  margin-top: 70px;
+}
+
+#collapse-menu {
+  display: none;
+}
+
+#collapse-button {
+  display: none;
+}
+
+/* Admin Bar Customizations */
+
+#wpadminbar {
+  background: linear-gradient(to right, #D337D7, #1CE0D8);
+}
+
+#wp-admin-bar-wp-logo {
+  display: none;
+}
