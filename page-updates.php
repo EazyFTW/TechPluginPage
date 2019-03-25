@@ -13,7 +13,7 @@ $loop = new WP_Query( array(
 <?php
 while ( $loop->have_posts() ) : $loop->the_post();
 
-include("single-update.php");
+include("update.php");
 
 endwhile; wp_reset_query();
 ?>
