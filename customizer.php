@@ -8,7 +8,8 @@ $wp_customize -> remove_section( 'static_front_page' );
 addSection($wp_customize, "Visual Settings", "general");
 addSection($wp_customize, "API Settings", "api_settings");
 
-addImageSetting($wp_customize, "general", "Plugin Header", "header", get_template_directory_uri() . 'default_header.png');
+addImageSetting($wp_customize, "general", "Plugin Header", "header", get_template_directory_uri() . 'https://via.placeholder.com/700x257.png?text=Insert+Header+Image+Here');
+addImageSetting($wp_customize, "general", "Plugin Icon", "icon", get_template_directory_uri() . 'https://via.placeholder.com/500x500.png?text=Plugin+Icon');
 addColorSetting($wp_customize, "general", "Theme Color", "theme_color", "#000000");
 
 addUrlSetting($wp_customize, "api_settings", "API Url", "api_url", "http://api.techsco.de");

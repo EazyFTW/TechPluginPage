@@ -1,42 +1,19 @@
-<?php get_header(); ?>
-
 <?php
-$loop = new WP_Query( array(
-    'post_type' => 'wiki',
-    'posts_per_page' => -1,
-    'orderby' => 'id',
-    'order' => 'ASC'
-  )
-);
+
+get_header();
+
+the_post();
+include("wiki.php");
+
 ?>
 
-<div class="wikiWrapper">
-  <div class="wikiPage">
-    <h3><?php the_title(); ?></h3>
+<script>
+  <?php $wikiPage = get_page_by_title("Wiki"); ?>
+  targetPageItems = document.getElementsByClassName("page-item-<?php echo $wikiPage->ID; ?>");
 
-    <div class="wikiContent">
-      <?php the_content(); ?>
-    </div>
-  </div>
-  <div class="wikiSidebar">
-    <h4>Navigation</h4>
-
-    <ul class="wikiNavigation">
-      <?php
-      $currentPageId = get_the_ID();
-      while ( $loop->have_posts() ) : $loop->the_post();
-        $navItemPageId = get_the_ID();
-
-        if($currentPageId == $navItemPageId){
-          echo '<li class="wikiNavItem wikiActiveNavItem"><a href="'.get_permalink().'">'.get_the_title().'</a></li>';
-        } else {
-          echo '<li class="wikiNavItem"><a href="'.get_permalink().'">'.get_the_title().'</a></li>';
-        }
-
-      endwhile; wp_reset_query();
-      ?>
-    </ul>
-  </div>
-</div>
+  if(targetPageItems.length != 0){
+    targetPageItems[0].classList.add("current_page_item");
+  }
+</script>
 
 <?php get_footer(); ?>

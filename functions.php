@@ -103,7 +103,7 @@ function createUpdatePostType() {
     'public'            => true,
     'menu_position'     => 5,
     'supports'          => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields' ),
-    'has_archive'       => true,
+    'has_archive'       => false,
     'menu_icon'       => 'dashicons-update',
     'show_in_admin_bar' => true,
     'show_in_nav_menus' => true,
@@ -147,12 +147,12 @@ function createWikiPostType(){
     'public'            => true,
     'menu_position'     => 5,
     'supports'          => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields' ),
-    'has_archive'       => true,
+    'has_archive'       => false,
     'menu_icon'       => 'dashicons-book-alt',
     'show_in_admin_bar' => true,
     'show_in_nav_menus' => true,
     'has_archive'       => false,
-    'show_in_rest' => true,
+    'show_in_rest' => false,
     'query_var'         => 'wiki'
   );
 

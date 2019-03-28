@@ -1,4 +1,5 @@
 <?php
+$copyMode = isset($_GET['copyMode']);
 $version = explode(" ", get_the_title())[0];
 $title = substr(get_the_title(), strlen($version));
 
@@ -15,7 +16,7 @@ if(is_array($terms)){
 ?>
 
 <div class="update condensed">
-  <h3 class="sideline"><?php echo $title; ?></h3>
+  <h3 class="sideline"><a href="<?php echo get_post_permalink(); ?>"><?php echo $title; ?></a></h3>
   <ul class="tagline">
     <?php
     foreach($tags as $tag){
@@ -24,9 +25,13 @@ if(is_array($terms)){
      ?>
   </ul>
 
-  <?php the_content(); ?>
+  <?php echo get_the_content(); ?>
 
-  <div class="postFooter">
-    <?php echo "written by ".get_author_name()." on ".get_the_time();?>
-  </div>
+  <?php
+  if(!$copyMode){
+    echo '<div class="postFooter">';
+    echo "written by ".get_author_name()." on ".get_the_time();
+    echo '</div>';
+  }
+  ?>
 </div>
