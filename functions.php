@@ -4,6 +4,7 @@ function onPageInitialization(){
   createUpdatePostType();
   createWikiPostType();
   createDefaultPages();
+  setCustomPermalink();
 }
 
 function getCSSOverwrites() {
@@ -28,6 +29,13 @@ function getAdminPanelCSS(){
   $cssFile = get_bloginfo('template_directory')."/style_acp.css";
   echo '<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">';
   echo '<link rel="stylesheet" type="text/css" href="'.$cssFile.'">';
+}
+
+function setCustomPermalink(){
+  global $wp_rewrite;
+  $wp_rewrite->set_permalink_structure('/%postname%/');
+  $wp_rewrite->flush_rules();
+  flush_rewrite_rules();
 }
 
 function createDefaultPages(){
@@ -172,3 +180,4 @@ add_action('init', 'onPageInitialization', 0);
 add_action('wp_enqueue_scripts', 'registerOverwrites' );
 add_action('customize_register', 'registerCustomizer' );
 add_action('admin_head', 'getAdminPanelCSS');
+add_filter('use_block_editor_for_post', '__return_false');
