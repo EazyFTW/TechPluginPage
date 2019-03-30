@@ -11,8 +11,9 @@ $loop = new WP_Query( array(
 <div class="wikiWrapper">
   <div class="wikiPage">
     <h3><?php the_title(); ?></h3>
+    <hr class="line">
 
-    <div class="wikiContent">
+    <div class="wikiContent page-content">
       <?php the_content(); ?>
     </div>
   </div>

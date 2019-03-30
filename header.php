@@ -35,5 +35,11 @@ function localFile($path){
       <img class="header" src="<?php echo esc_url(get_theme_mod( 'header', 'https://via.placeholder.com/700x257.png?text=Insert+Header+Image+Here')); ?>">
 
       <ul class="navigation">
-        <?php wp_list_pages( '&title_li=' ); ?>
+        <?php
+        $copyMode = isset($_GET['copyMode']);
+
+        if(!$copyMode){
+          wp_list_pages( '&title_li=' );
+        }
+        ?>
       </ul>

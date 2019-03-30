@@ -15,7 +15,7 @@ if(is_array($terms)){
 
 ?>
 
-<div class="update condensed">
+<div class="update condensed page-content">
   <h3 class="sideline"><a href="<?php echo get_post_permalink(); ?>"><?php echo $title; ?></a></h3>
   <ul class="tagline">
     <?php
