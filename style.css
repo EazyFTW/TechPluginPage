@@ -257,7 +257,7 @@ img {
   margin-top: 10px;
 }
 
-.page-content > ul > li {
+.page-content > ul:not(.tagline) > li {
   margin-left: 20px;
 }
 
