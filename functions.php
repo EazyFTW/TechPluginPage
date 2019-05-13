@@ -181,3 +181,11 @@ add_action('wp_enqueue_scripts', 'registerOverwrites' );
 add_action('customize_register', 'registerCustomizer' );
 add_action('admin_head', 'getAdminPanelCSS');
 add_filter('use_block_editor_for_post', '__return_false');
+
+remove_action('rest_api_init', 'wp_oembed_register_route');
+
+ // Disabling oEmbeds
+add_filter( 'embed_oembed_discover', '__return_false' );
+remove_filter('oembed_dataparse', 'wp_filter_oembed_result', 10);
+remove_action('wp_head', 'wp_oembed_add_discovery_links');
+remove_action('wp_head', 'wp_oembed_add_host_js');

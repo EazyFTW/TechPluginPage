@@ -11,6 +11,15 @@ function localFile($path){
   <head>
     <title><?php echo (is_front_page() ? "Overview" : wp_title(''))." - ".get_bloginfo( 'name' ); ?></title>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta property="og:site_name" value="<?php echo get_bloginfo( 'name' ); ?>">
+    <meta property="og:title" content="<?php echo (is_front_page() ? "Overview" : wp_title('')); ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<?php echo get_site_url(); ?>" />
+    <meta property="og:image" content="<?php echo esc_url(get_theme_mod( 'icon', 'https://via.placeholder.com/500x500.png?text=Plugin+Icon')); ?>" />
+    <meta property="og:description" content="<?php echo get_bloginfo('description');?>" />
+    <meta name="theme-color" content="<?php echo get_theme_mod('theme_color', '#000000');?>">
+
+    <link rel="shortcut icon" href="<?php echo esc_url(get_theme_mod( 'icon', 'https://via.placeholder.com/500x500.png?text=Plugin+Icon')); ?>" />
 
     <?php
     wp_head();
