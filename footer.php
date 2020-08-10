@@ -1,7 +1,7 @@
       <?php wp_footer(); ?>
 
       <div class="footer">
-          <p>Copyright 2019 - TechsCode</p>
+          <p>Copyright <?php echo date("Y"); ?> - TechsCode</p>
       </div>
     </div>
   </body>
